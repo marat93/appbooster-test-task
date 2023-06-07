@@ -25,8 +25,8 @@ ENV BUNDLE_APP_CONFIG=.bundle
 RUN gem update --system && \
     gem install bundler
 
-# COPY Gemfile Gemfile.lock ./
-# RUN bundle install
+COPY Gemfile Gemfile.lock ./
+RUN bundle install
 
 RUN mkdir -p /app
 WORKDIR /app

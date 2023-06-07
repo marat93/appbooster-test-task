@@ -5,8 +5,6 @@ services:
     build: .
     volumes:
       - "./:/app"
-    ports:
-      - "3000:3000"
     environment:
       - REDIS_URL=redis://redis:6379
     command: rails s -b 0.0.0.0
@@ -19,6 +17,12 @@ services:
     command: redis-server
     volumes:
       - cache:/data
+  nginx:
+    image: nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./default.conf:/etc/nginx/conf.d/default.conf
 
 volumes:
   cache:
