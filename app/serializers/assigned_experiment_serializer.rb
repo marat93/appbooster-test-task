@@ -1,3 +1,3 @@
 class AssignedExperimentSerializer < ActiveModel::Serializer
-    attributes :experiment_name, :experiment_option
+  attributes :experiment_name, :experiment_option
 end

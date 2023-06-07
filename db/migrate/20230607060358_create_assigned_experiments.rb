@@ -6,7 +6,7 @@ class CreateAssignedExperiments < ActiveRecord::Migration[7.0]
       t.string :experiment_option, null: false
       t.timestamps
 
-      t.index [:device_id, :experiment_name], unique: true
+      t.index %i[device_id experiment_name], unique: true
     end
   end
 end
