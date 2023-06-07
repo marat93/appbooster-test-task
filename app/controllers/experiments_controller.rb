@@ -4,7 +4,7 @@ class ExperimentsController < ApplicationController
 
     device = ExperimentsAssigner.new(device_id).call
 
-    render json: device, serializer: DeviceSerializer
+    render json: device
   end
 
   private
