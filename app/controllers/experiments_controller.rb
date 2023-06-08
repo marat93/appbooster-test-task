@@ -1,6 +1,8 @@
 class ExperimentsController < ApplicationController
   def index
-    return render json: { error: { message: "Device-Token header is empty" } }, status: :bad_request if device_id.blank?
+    if device_id.blank?
+      return render json: { error: { message: "Device-Token header is empty" } }, status: :bad_request
+    end
 
     device = ExperimentsAssigner.new(device_id).call
 
